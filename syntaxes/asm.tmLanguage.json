@@ -1,0 +1,95 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Assembly",
+	"patterns": [
+		{
+			"include": "#lower-keywords"
+		},
+		{
+			"include": "#upper-keywords"
+		},
+		{
+			"include": "#labels"
+		},
+		{
+			"include": "#registers1"
+		},
+		{
+			"include": "#registers2"
+		},
+		{
+			"include": "#registers3"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#macros"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"lower-keywords": {
+			"patterns": [{
+				"name": "keyword.control.asm",
+				"match": "\\b(bits|default|section|segment|absolute|extern|required|global|common|static|(g|l)prefix|(g|l)postfix|cpu|float|warning)\\b"
+			}]
+		},
+		"upper-keywords": {
+			"patterns": [{
+				"name": "keyword.control.asm",
+				"match": "\\b(BITS|DEFAULT|SECTION|SEGMENT|ABSOLUTE|EXTERN|REQUIRED|GLOBAL|COMMON|STATIC|(G|L)PREFIX|(G|L)POSTFIX|CPU|FLOAT|WARNING)\\b"
+			}]
+		},
+		"labels":{
+			"patterns": [{
+				"name":	"entity.name.tag.asm",
+				"match": "^\\s*([_a-zA-Z][_a-zA-Z0-9]*):"
+			}]
+		},
+		"registers1":{
+			"patterns": [{
+				"name": "variable.language.asm",
+				"match": "\\b([erER]{0,1}[a-dA-D][lhxLHX])\\b"
+			}]
+		},
+		"registers2":{
+			"patterns": [{
+				"name":"variable.language.asm",
+				"match": "\\b[erER](([sS][pP])|([bB][pP])|([sS][iI])|([dD][iI]))\\b"
+			}]
+		},
+		"registers3":{
+			"patterns": [{
+				"name":"variable.language.asm",
+				"match": "\\b(([sS][pP])|([bB][pP])|([sS][iI])|([dD][iI]))[lL]\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.asm",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.asm",
+					"match": "\\\\."
+				}
+			]
+		},
+		"macros": {
+			"patterns": [{
+				"name": "variable.function.asm",
+				"match": "^\\s*(%[\\S]+?)\\b"
+			}]
+		},
+		"comments":{
+			"patterns": [{
+				"name": "comment.asm",
+				"match": ";.*"
+			}]
+		}
+	},
+	"scopeName": "source.s"
+}
