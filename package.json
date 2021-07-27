@@ -3,6 +3,10 @@
     "displayName": "Assembly Code",
     "description": "NASM assembly language syntax highlight",
     "version": "0.0.1",
+    "publisher": "PlanC",
+    "repository": {
+        "url": "https://github.com/hubenchang0515/assembly-code"
+    },
     "engines": {
         "vscode": "^1.58.0"
     },
